@@ -34,7 +34,7 @@ applications:
 
   console-links:
     annotations:
-      argocd.argoproj.io/sync-wave: '99'
+      argocd.argoproj.io/sync-wave: '1'
     source:
       path: infra/consolelinks/base
 
