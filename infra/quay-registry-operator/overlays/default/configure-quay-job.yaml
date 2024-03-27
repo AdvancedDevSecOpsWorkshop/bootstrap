@@ -16,6 +16,8 @@ spec:
           env:
           - name: sub_domain
             value: ${SUB_DOMAIN}
+          - name: users
+            value: ${USERS}
           command:
             - /bin/bash
             - -c
@@ -34,7 +36,7 @@ spec:
 
               ansible-galaxy collection install -r collections/requirements.yaml
 
-              ansible-playbook quay-configure.yaml -e access_token=$token -e sub_domain=$sub_domain
+              ansible-playbook quay-configure.yaml -e access_token=$token -e sub_domain=$sub_domain -e users=$users
 
           name: configure-quay
       dnsPolicy: ClusterFirst
