@@ -13,6 +13,7 @@ data:
         mode: auto
         clientID: acs
         clientSecret: 94395add-db2d-4564-bc40-fd9ed4f23cdf
+        disableOfflineAccessScope: true
     groups:
         - key: name
           value: admin
