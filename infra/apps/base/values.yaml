@@ -104,7 +104,7 @@ applications:
         helm:
             values: |
               users: ${USERS}
-              sub_domain: apps.${SUB_DOMAIN}
+              sub_domain: ${SUB_DOMAIN}
 
   openshift-oauth:
     annotations:
