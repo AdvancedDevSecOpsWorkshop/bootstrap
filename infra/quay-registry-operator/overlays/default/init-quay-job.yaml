@@ -41,9 +41,9 @@ spec:
               echo "tempuser:x:$(id -G | cut -d' ' -f 2)" >> /etc/group
               id
 
-              echo "Waiting for two minutes for quay to be ready"
+              echo "Waiting for three minutes for quay to be ready"
 
-              sleep 120
+              sleep 180
 
               git clone https://github.com/AdvancedDevSecOpsWorkshop/quay
 
