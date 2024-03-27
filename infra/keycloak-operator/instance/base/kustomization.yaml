@@ -1,0 +1,9 @@
+namespace: keycloak
+
+resources:
+- certificate.yaml
+- postgresql-pvc.yaml
+- postgresql-secret.yaml
+- postgresql-svc.yaml
+- postgresql-dc.yaml
+- keycloak.yaml
