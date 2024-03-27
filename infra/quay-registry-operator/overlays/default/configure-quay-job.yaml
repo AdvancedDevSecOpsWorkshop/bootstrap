@@ -17,7 +17,7 @@ spec:
           - name: sub_domain
             value: ${SUB_DOMAIN}
           - name: users
-            value: ${USERS}
+            value: "${USERS}"
           command:
             - /bin/bash
             - -c
