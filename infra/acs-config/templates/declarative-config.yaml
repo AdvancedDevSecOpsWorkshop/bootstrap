@@ -6,7 +6,7 @@ metadata:
 data:
   keycloak.yaml: |
     name: keycloak
-    minimumRole: Admin
+    minimumRole: None
     uiEndpoint: central-stackrox.{{ $.Values.sub_domain }}:443
     oidc:
         issuer: https://keycloak.{{ $.Values.sub_domain }}/realms/openshift
