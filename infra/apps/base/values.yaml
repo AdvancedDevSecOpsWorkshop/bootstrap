@@ -85,14 +85,6 @@ applications:
     source:
       path: infra/pipelines-operator/base
 
-  quay:
-    annotations:
-      argocd.argoproj.io/sync-wave: '11'
-    destination:
-      namespace: quay-operator
-    source:
-      path: infra/quay-registry-operator/overlays/default
-
   keycloak-instance:
     annotations:
       argocd.argoproj.io/sync-wave: '21'
@@ -113,6 +105,15 @@ applications:
             values: |
               users: ${USERS}
               sub_domain: apps.${SUB_DOMAIN}
+
+  # Quay won't start without keycloak being up and running
+  quay:
+    annotations:
+      argocd.argoproj.io/sync-wave: '35'
+    destination:
+      namespace: quay-operator
+    source:
+      path: infra/quay-registry-operator/overlays/default
 
   openshift-oauth:
     annotations:
