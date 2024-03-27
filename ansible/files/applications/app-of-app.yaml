@@ -14,6 +14,6 @@ spec:
       prune: false
       selfHeal: true
   source:
-    repoURL: https://github.com/AdvancedDevSecOpsWorkshop/workshop
+    repoURL: https://github.com/AdvancedDevSecOpsWorkshop/bootstrap
     targetRevision: main
-    path: bootstrap/infra/apps/base
+    path: infra/apps/base

@@ -27,9 +27,9 @@ spec:
           prune: false
           selfHeal: false
       source:
-        repoURL: https://github.com/AdvancedDevSecOpsWorkshop/workshop
+        repoURL: https://github.com/AdvancedDevSecOpsWorkshop/bootstrap
         targetRevision: main
-        path: bootstrap/user
+        path: user
         helm:
           values: |
             user: "{% raw %}{{ user }}{% endraw %}"
