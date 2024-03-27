@@ -672,6 +672,7 @@ spec:
       - id: clusteradmin
         username: clusteradmin
         enabled: true
+        email: clusteradmin@workshop-noreply.com
         groups:
           - developers
           - cluster-admins
@@ -687,6 +688,7 @@ spec:
       - id: admin
         username: admin
         enabled: true
+        email: admin@workshop-noreply.com
         groups:
           - developers
           - cluster-admins
@@ -702,6 +704,7 @@ spec:
 {{- range untilStep 1 (int ($.Values.users | add 1)) 1 }}
       - id: user{{ . }}
         username: user{{ . }}
+        email: user{{ . }}@workshop-noreply.com
         enabled: true
         groups:
           - developers
