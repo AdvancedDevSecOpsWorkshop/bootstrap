@@ -106,15 +106,6 @@ applications:
               users: ${USERS}
               sub_domain: apps.${SUB_DOMAIN}
 
-  # Quay won't start without keycloak being up and running
-  quay:
-    annotations:
-      argocd.argoproj.io/sync-wave: '35'
-    destination:
-      namespace: quay-operator
-    source:
-      path: infra/quay-registry-operator/overlays/default
-
   openshift-oauth:
     annotations:
       argocd.argoproj.io/sync-wave: '41'
@@ -122,3 +113,14 @@ applications:
       namespace: openshift-config
     source:
       path: infra/oauth/base
+
+  # Quay won't start without keycloak being up and running
+  # Also Quay tends to be the most problematic component so
+  # this last
+  quay:
+    annotations:
+      argocd.argoproj.io/sync-wave: '51'
+    destination:
+      namespace: quay-operator
+    source:
+      path: infra/quay-registry-operator/overlays/default
