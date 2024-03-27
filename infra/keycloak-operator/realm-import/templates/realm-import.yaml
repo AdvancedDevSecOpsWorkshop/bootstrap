@@ -566,6 +566,7 @@ spec:
       secret: 94395add-db2d-4564-bc40-fd9ed4f23cdf
       redirectUris:
       - https://central-stackrox.{{ $.Values.sub_domain }}/*
+      - https://central-stackrox.{{ $.Values.sub_domain }}:443/*
       webOrigins:
       - "*"
       notBefore: 0
