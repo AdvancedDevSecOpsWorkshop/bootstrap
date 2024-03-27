@@ -556,9 +556,9 @@ spec:
       clientId: acs
       name: acs
       description: ACS Authentication
-      rootUrl: https://{{ $.Values.sub_domain }}
-      adminUrl: ''
-      baseUrl: https://{{ $.Values.sub_domain }}
+      rootUrl: https://central-stackrox.{{ $.Values.sub_domain }}
+      adminUrl: https://central-stackrox.{{ $.Values.sub_domain }}
+      baseUrl: https://central-stackrox.{{ $.Values.sub_domain }}
       surrogateAuthRequired: false
       enabled: true
       alwaysDisplayInConsole: false
@@ -610,16 +610,16 @@ spec:
       clientId: quay
       name: quay
       description: Quay Client
-      rootUrl: https://https://registry-quay-quay-operator.{{ $.Values.sub_domain }}
+      rootUrl: https://registry-quay-quay-operator.{{ $.Values.sub_domain }}
       adminUrl: ''
-      baseUrl: https://https://registry-quay-quay-operator.{{ $.Values.sub_domain }}
+      baseUrl: https://registry-quay-quay-operator.{{ $.Values.sub_domain }}
       surrogateAuthRequired: false
       enabled: true
       alwaysDisplayInConsole: false
       clientAuthenticatorType: client-secret
       secret: 5d71fc1a-feb8-4a9c-8eb9-1f5605c174bf
       redirectUris:
-      - https://https://registry-quay-quay-operator.{{ $.Values.sub_domain }}/*
+      - https://registry-quay-quay-operator.{{ $.Values.sub_domain }}/*
       webOrigins:
       - "*"
       notBefore: 0
