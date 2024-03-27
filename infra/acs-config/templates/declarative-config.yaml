@@ -6,7 +6,7 @@ metadata:
 data:
   keycloak.yaml: |
     name: keycloak
-    minimumRole: Admin
+    minimumRole: None
     uiEndpoint: central-stackrox.{{ $.Values.sub_domain }}:443
     oidc:
         issuer: https://keycloak.{{ $.Values.sub_domain }}/realms/openshift
@@ -16,10 +16,10 @@ data:
         disableOfflineAccessScope: true
     groups:
         - key: name
-          value: admin
+          value: admin@workshop-noreply.com
           role: Admin
         - key: name
-          value: clusteradmin
+          value: clusteradmin@workshop-noreply.com
           role: Admin
         {{- range untilStep 1 (int ($.Values.users | add 1)) 1 }}
         - key: name
@@ -41,7 +41,7 @@ data:
           role: Admin
         {{- range untilStep 1 (int ($.Values.users | add 1)) 1 }}
         - key: name
-          value: user{{ . }}
+          value: user{{ . }}@workshop-noreply.com
           role: user{{ . }}
         {{- end }}
   {{- range untilStep 1 (int ($.Values.users | add 1)) 1 }}
