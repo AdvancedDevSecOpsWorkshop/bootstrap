@@ -13,7 +13,7 @@ namespace: quay-operator
 #       - config.yaml=config-bundle-secret/config.yaml
 
 resources:
-- github.com/redhat-cop/gitops-catalog/quay-operator/operator/overlays/stable-3.8
+- github.com/redhat-cop/gitops-catalog/quay-operator/operator/overlays/stable-3.11
 - config-bundle-secret.yaml
 - registry.yaml
 - init-user-password.yaml
