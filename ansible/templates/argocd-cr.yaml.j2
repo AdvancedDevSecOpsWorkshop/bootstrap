@@ -7,7 +7,9 @@ metadata:
 spec:
   resourceTrackingMethod: annotation
   applicationSet: {}
-  sso: {}
+  sso:
+    dex:
+      openShiftOAuth: false
   oidcConfig: |
     name: Keycloak
     issuer: https://keycloak.{{ sub_domain }}/realms/openshift
