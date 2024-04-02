@@ -8,3 +8,4 @@ resources:
 - gitea.yaml
 - quay.yaml
 - keycloak.yaml
+- keycloak-account.yaml

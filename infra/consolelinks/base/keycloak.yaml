@@ -8,4 +8,4 @@ spec:
   text: Keycloak
   applicationMenu:
     section: Red Hat Applications
-    imageURL: https://keycloak.${SUB_DOMAIN}/resources/ngpu1/welcome/keycloak/img/favicon.ico
+    imageURL: https://upload.wikimedia.org/wikipedia/commons/2/29/Keycloak_Logo.png

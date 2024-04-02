@@ -1,0 +1,8 @@
+apiVersion: console.openshift.io/v1
+kind: ConsoleLink
+metadata:
+  name: sso-account
+spec:
+  href: https://keycloak.${SUB_DOMAIN}/realms/openshift/account'
+  location: UserMenu
+  text: Account Settings
