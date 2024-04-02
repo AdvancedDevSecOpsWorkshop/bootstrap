@@ -668,6 +668,11 @@ spec:
       - id: cluster-admins
         name: cluster-admins
         path: /cluster-admins
+{{- range untilStep 1 (int ($.Values.users | add 1)) 1 }}
+      - id: team{{ . }}
+        name: team{{ . }}
+        path: /team{{ . }}
+{{- end }}
     users:
       - id: clusteradmin
         username: clusteradmin
@@ -708,6 +713,7 @@ spec:
         enabled: true
         groups:
           - developers
+          - team{{ . }}
         credentials:
         - type: password
           hashedSaltedValue: 5Mhqu6I43dSlDqVzpbv5yVjMYrTKOY4mbTwJu+1B0SA=
