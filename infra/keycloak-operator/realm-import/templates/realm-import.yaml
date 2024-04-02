@@ -681,6 +681,10 @@ spec:
         groups:
           - developers
           - cluster-admins
+{{- range untilStep 1 (int ($.Values.users | add 1)) 1 }}
+          - team{{ . }}
+{{- end }}
+
         credentials:
         - type: password
           hashedSaltedValue: 5Mhqu6I43dSlDqVzpbv5yVjMYrTKOY4mbTwJu+1B0SA=
