@@ -61,7 +61,7 @@ applications:
     destination:
       namespace: gitea
     source:
-      path: bootstrap/infra/gitea/base
+      path: infra/gitea/base
     syncPolicyRetry:
       limit: 5
       backoff:
