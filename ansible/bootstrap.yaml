@@ -85,6 +85,7 @@
     - name: Update openshift-gitops-instance
       kubernetes.core.k8s:
         state: present
+        apply: true
         definition: "{{ lookup('template', 'argocd-cr.yaml.j2') }}"
 
     - name: Sleep for 10 seconds
