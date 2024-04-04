@@ -124,3 +124,12 @@ applications:
       namespace: quay-operator
     source:
       path: infra/quay-registry-operator/overlays/default
+    extraFields:
+      ignoreDifferences:
+      - group: ""
+        kind: Secret
+        jsonPointers:
+        - /data/tls.crt
+        - /data/tls.key
+        name: config-bundle-secret
+        namespace: quay-operator
