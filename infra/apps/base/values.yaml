@@ -131,7 +131,6 @@ applications:
       - group: ""
         kind: Secret
         jsonPointers:
-        - /data/tls.crt
-        - /data/tls.key
+        - /data/config.yaml
         name: config-bundle-secret
         namespace: quay-operator
