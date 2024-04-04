@@ -1,5 +1,5 @@
-apiVersion: apps.openshift.io/v1
-kind: DeploymentConfig
+apiVersion: apps/v1
+kind: Deployment
 metadata:
   name: postgresql
   namespace: keycloak
@@ -7,7 +7,8 @@ spec:
   replicas: 1
   revisionHistoryLimit: 10
   selector:
-    name: postgresql
+    matchLabels:
+      name: postgresql
   strategy:
     activeDeadlineSeconds: 21600
     recreateParams:
@@ -79,16 +80,3 @@ spec:
       - name: postgresql-data
         persistentVolumeClaim:
           claimName: postgresql
-  test: false
-  triggers:
-  - imageChangeParams:
-      automatic: true
-      containerNames:
-      - postgresql
-      from:
-        kind: ImageStreamTag
-        name: postgresql:15-el8
-        namespace: openshift
-      lastTriggeredImage: image-registry.openshift-image-registry.svc:5000/openshift/postgresql@sha256:6df38245443920cb08899487a70b58c0976e6b180c13c33900c766d39717bdae
-    type: ImageChange
-  - type: ConfigChange

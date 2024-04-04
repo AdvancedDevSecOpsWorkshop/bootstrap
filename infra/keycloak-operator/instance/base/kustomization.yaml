@@ -5,5 +5,5 @@ resources:
 - postgresql-pvc.yaml
 - postgresql-secret.yaml
 - postgresql-svc.yaml
-- postgresql-dc.yaml
+- postgresql-deploy.yaml
 - keycloak.yaml
