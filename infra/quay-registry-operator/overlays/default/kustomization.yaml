@@ -5,6 +5,7 @@ namespace: quay-operator
 
 resources:
 - github.com/redhat-cop/gitops-catalog/quay-operator/operator/overlays/stable-3.11
+- automation-sa.yaml
 - config-bundle-secret.yaml
 - registry.yaml
 - init-user-password.yaml
