@@ -124,6 +124,8 @@ applications:
       namespace: quay-operator
     source:
       path: infra/quay-registry-operator/overlays/default
+    syncOptions:
+      - RespectIgnoreDifferences=true
     extraFields: |
       ignoreDifferences:
       - group: ""
