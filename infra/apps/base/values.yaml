@@ -124,7 +124,7 @@ applications:
       namespace: quay-operator
     source:
       path: infra/quay-registry-operator/overlays/default
-    extraFields:
+    extraFields: |
       ignoreDifferences:
       - group: ""
         kind: Secret
