@@ -36,7 +36,7 @@ spec:
             secretKeyRef:
               key: database-name
               name: postgresql
-        image: image-registry.openshift-image-registry.svc:5000/openshift/postgresql@sha256:6df38245443920cb08899487a70b58c0976e6b180c13c33900c766d39717bdae
+        image: registry.redhat.io/rhel8/postgresql-15:1
         imagePullPolicy: IfNotPresent
         livenessProbe:
           exec:
