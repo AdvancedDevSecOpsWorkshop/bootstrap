@@ -24,18 +24,19 @@ you will need to log into Quay with the `clusteradmin` user and create the Admin
 Follow these steps:
 
 1. Login into Quay via Kerycloak using the `clusteradmin` user and provided password
-2. Create a new organization called `workshop-admin`
-3. In the new org
-
-5. Create the secret with the token as follows:
+2. Create a new organization called `workshop_admin`
+3. In the new organization, click on Applications in the left side bar
+4. Create a new app called `quay-config` and hit enter
+5. Generate a token, select all permissions
+6. Copy the token that is shown and create the secret with the token as follows:
 
 ```
-oc create secret generic api-token --from-literal=token=<token>
+oc create secret -n quay-operator generic api-token --from-literal=token=<token>
 ```
 
-6. Go to the Cluster Argo CD and navigate to the quay-operator application
-7. If the quay-operator is already syncing in Argo CD then terminate it
-8. Press the Sync button again, this will restart the `configure-quay` job with the API token you provided. Note that this job is idempotent and can be run as many times as needed.
+7. Go to the Cluster Argo CD and navigate to the quay-operator application
+8. If the quay-operator is already syncing in Argo CD then terminate it
+9. Press the Sync button again, this will restart the `configure-quay` job with the API token you provided. Note that this job is idempotent and can be run as many times as needed.
 
 ### Troubleshooting
 #### Check in Cluster Argo CD that all Applications are in Sync and not Degraded
