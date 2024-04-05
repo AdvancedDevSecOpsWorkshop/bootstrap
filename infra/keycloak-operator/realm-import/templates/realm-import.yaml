@@ -631,7 +631,7 @@ spec:
       directAccessGrantsEnabled: false
       serviceAccountsEnabled: false
       publicClient: false
-      frontchannelLogout: true
+      frontchannelLogout: false
       protocol: openid-connect
       attributes:
         client.secret.creation.time: '1690676233'
