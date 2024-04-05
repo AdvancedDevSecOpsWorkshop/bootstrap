@@ -9,5 +9,5 @@ resources:
 - config-bundle-secret.yaml
 - registry.yaml
 - init-user-password.yaml
-- init-quay-job.yaml
+# - init-quay-job.yaml
 - configure-quay-job.yaml
