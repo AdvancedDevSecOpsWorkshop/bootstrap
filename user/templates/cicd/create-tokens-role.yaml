@@ -1,0 +1,27 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: create-tokens
+  namespace: user{{ .Values.user }}-cicd
+rules:
+  - apiGroups:
+    - ""
+    resources:
+    - secrets
+    verbs:
+    - create
+    - get
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: create-tokens
+  namespace: user{{ .Values.user }}-cicd
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: create-tokens
+subjects:
+- kind: ServiceAccount
+  name: automation
+  namespace: quay-operator
