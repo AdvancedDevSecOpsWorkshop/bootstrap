@@ -9,7 +9,7 @@ spec:
   giteaConfigMapName: gitea-custom-config
   giteaHostname: gitea-gitea.${SUB_DOMAIN}
   giteaSsl: true
-  giteaAdminUser: admin
+  giteaAdminUser: gitea-admin
   giteaAdminPassword: "openshift"
   giteaAdminPasswordLength: 32
   giteaAdminEmail: gitea-admin@ignore-redhat.com
