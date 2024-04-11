@@ -35,7 +35,6 @@ spec:
               git clone https://github.com/AdvancedDevSecOpsWorkshop/gitea
               cd gitea
               git checkout ${branch}
-              cd infra/components/gitea/base/gitea-configure-playbook
 
               ansible-playbook main.yaml -e gitea_password=$password -e sub_domain=$sub_domain -e users=$users
           name: configure-gitea
