@@ -60,6 +60,9 @@ data:
     ENABLE_OPENID_SIGNIN = true
     ENABLE_OPENID_SIGNUP = true
 
+    [oauth2_client]
+    ACCOUNT_LINKING = true
+
     [webhook]
     ALLOWED_HOST_LIST = external,private
     SKIP_TLS_VERIFY = False
