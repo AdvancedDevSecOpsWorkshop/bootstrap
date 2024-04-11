@@ -62,6 +62,7 @@ data:
 
     [oauth2_client]
     ACCOUNT_LINKING = true
+    ENABLE_AUTO_REGISTRATION = TRUE
 
     [webhook]
     ALLOWED_HOST_LIST = external,private
