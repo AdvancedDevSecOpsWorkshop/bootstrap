@@ -17,6 +17,8 @@ spec:
             value: main
           - name: password
             value: password
+          - name: users
+            value: ${USERS}
           command:
             - /bin/bash
             - -c
@@ -34,7 +36,7 @@ spec:
               git checkout ${branch}
               cd infra/components/gitea/base/gitea-configure-playbook
 
-              ansible-playbook main.yaml -e gitea_password=$password -e sub_domain=$sub_domain
+              ansible-playbook main.yaml -e gitea_password=$password -e sub_domain=$sub_domain -e users=$users
           name: configure-gitea
       dnsPolicy: ClusterFirst
       restartPolicy: Never
