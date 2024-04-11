@@ -6,6 +6,7 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
 spec:
+  giteaConfigMapName: gitea-custom-config
   giteaSsl: true
   giteaAdminUser: gitea-admin
   giteaAdminPassword: "openshift"

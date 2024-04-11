@@ -715,8 +715,6 @@ spec:
       - phone
       - offline_access
       - microprofile-jwt
-
-
     groups:
       - id: developers
         name: developers
