@@ -9,13 +9,13 @@ spec:
   giteaConfigMapName: gitea-custom-config
   giteaHostname: gitea-gitea.${SUB_DOMAIN}
   giteaSsl: true
-  giteaAdminUser: gitea-admin
+  giteaAdminUser: admin
   giteaAdminPassword: "openshift"
   giteaAdminPasswordLength: 32
   giteaAdminEmail: gitea-admin@ignore-redhat.com
   giteaCreateUsers: true
   giteaUserNumber: ${USERS}
-  giteaUserPassword: openshift
+  giteaUserPassword: "openshift"
   giteaMigrateRepositories: true
   giteaRepositoriesList:
     - repo: https://github.com/redhat-gpte-devopsautomation/globex-ui.git
