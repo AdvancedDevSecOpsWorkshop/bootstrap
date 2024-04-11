@@ -1,0 +1,39 @@
+---
+- name: Configure Keycloak with Gitea
+  gather_facts: no
+  hosts: localhost
+  vars:
+    admin_user: gitea-admin
+    admin_password: openshift
+    subdomain: apps.cluster-k8hh2.dynamic.redhatworkshops.io
+  tasks:
+
+    # - name: Get token
+    #   uri:
+    #     url: https://gitea-gitea.{{ subdomain }}/api/v1/users/{{ admin_user }}/tokens
+    #     method: POST
+    #     force_basic_auth: true
+    #     user: "{{ admin_user }}"
+    #     password: "{{ admin_password }}"
+    #     body_format: json
+    #     status_code: 201
+    #     body:
+    #       name: gitea-admin4
+    #   register: token_response
+
+    # - name: extract token
+    #   set_fact:
+    #     token: "{{ token_response.json.sha1 }}"
+
+    - name: Get UI Settings
+      uri:
+        url: https://gitea-gitea.{{ subdomain }}/api/v1/settings/ui
+        method: GET
+        force_basic_auth: true
+        user: "{{ admin_user }}"
+        password: "{{ admin_password }}"
+        status_code: 200
+      register: settings_ui
+
+    - debug:
+        msg: "{{ settings_ui }}"

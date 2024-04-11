@@ -38,6 +38,13 @@ oc create secret -n quay-operator generic api-token --from-literal=token=<token>
 8. If the quay-operator is already syncing in Argo CD then terminate it
 9. Press the Sync button again, this will restart the `configure-quay` job with the API token you provided. Note that this job is idempotent and can be run as many times as needed.
 
+#### Gitea
+
+The connection to Keycloak must be manually done as there doesn't appear to be an API for it. Login in as gitea-admin/openshift and then click on the icon in the
+top right and select "Site Settings". Configure a new OAuth2 provider with the settings in this screenshot:
+
+![alt text](https://raw.githubusercontent.com/AdvancedDevSecOpsWorkshop/bootstrap/main/docs/img/gitea-keycloak.png)
+
 ### Troubleshooting
 #### Check in Cluster Argo CD that all Applications are in Sync and not Degraded
 Login into the Cluster Argo CD and ensure that all Applications are Healthy and in Sync. Note that if Keycloak is down you may need to login using the admin account and the password stored in the openshift-gitops-cluster secret.
