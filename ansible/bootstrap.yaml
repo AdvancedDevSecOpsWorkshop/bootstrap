@@ -89,14 +89,15 @@
         definition: "{{ lookup('template', 'argocd-cr.yaml.j2') }}"
 
     - name: Patch out sso if its still there
-      kubernetes.core.k8s_json_patch module:
-        kind: ArgoCD
-        namespace: openshift-gitops
-        name: openshift-gitops
-        patch:
-          - op: remove
-            path: /spec/sso
-            value: myapp
+      k8s:
+        definition:
+          apiVersion: argoproj.io/v1beta1
+          kind: ArgoCD
+          metadata:
+            name: openshift-gitops
+            namespace: openshift-gitops
+          spec:
+            sso: null
       ignore_errors: true
 
     - name: Sleep for 10 seconds
