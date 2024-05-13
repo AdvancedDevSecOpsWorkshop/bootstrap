@@ -36,7 +36,7 @@ spec:
               cd gitea
               git checkout ${branch}
 
-              ansible-playbook main.yaml -e password=$password -e sub_domain=$sub_domain -e users="$users"
+              ansible-playbook main.yaml -e password=$password -e sub_domain=$sub_domain -e users=$(echo $users | xargs)
           name: configure-gitea
       dnsPolicy: ClusterFirst
       restartPolicy: Never
