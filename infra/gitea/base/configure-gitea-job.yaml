@@ -34,7 +34,7 @@ spec:
               echo "tempuser:x:$(id -u):$(id -g):,,,:${HOME}:/bin/bash" >> /etc/passwd
               echo "tempuser:x:$(id -G | cut -d' ' -f 2)" >> /etc/group
 
-              oc login --token=$API_TOKEN $API_SERVER
+              oc login --insecure-skip-tls-verify=true --token=$API_TOKEN $API_SERVER
 
               git clone https://github.com/AdvancedDevSecOpsWorkshop/gitea
               cd gitea
