@@ -30,7 +30,9 @@ spec:
 
               echo "tempuser:x:$(id -u):$(id -g):,,,:${HOME}:/bin/bash" >> /etc/passwd
               echo "tempuser:x:$(id -G | cut -d' ' -f 2)" >> /etc/group
-              id
+
+              ls /var/run/secrets/kubernetes.io/serviceaccount
+              oc login --token=$(echo /var/run/secrets/kubernetes.io/serviceaccount/token)
 
               git clone https://github.com/AdvancedDevSecOpsWorkshop/gitea
               cd gitea
