@@ -24,3 +24,6 @@ subjects:
 - kind: ServiceAccount
   name: automation
   namespace: quay-operator
+- kind: ServiceAccount
+  name: automation
+  namespace: gitea
