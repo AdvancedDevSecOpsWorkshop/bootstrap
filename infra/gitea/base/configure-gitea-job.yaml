@@ -26,13 +26,15 @@ spec:
             - |
               #!/usr/bin/env bash
 
+              API_TOKEN=$(cat /var/run/secrets/kubernetes.io/serviceaccount/token)
+              API_SERVER=https://kubernetes.default.svc
+
               echo "Setup temporary OCP user to make ansible happy"
 
               echo "tempuser:x:$(id -u):$(id -g):,,,:${HOME}:/bin/bash" >> /etc/passwd
               echo "tempuser:x:$(id -G | cut -d' ' -f 2)" >> /etc/group
 
-              ls /var/run/secrets/kubernetes.io/serviceaccount
-              oc login --token=$(echo /var/run/secrets/kubernetes.io/serviceaccount/token)
+              oc login --token=$API_TOKEN $API_SERVER
 
               git clone https://github.com/AdvancedDevSecOpsWorkshop/gitea
               cd gitea
