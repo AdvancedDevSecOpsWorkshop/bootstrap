@@ -24,11 +24,15 @@ spec:
             - |
               #!/usr/bin/env bash
 
+              API_TOKEN=$(cat /var/run/secrets/kubernetes.io/serviceaccount/token)
+              API_SERVER=https://kubernetes.default.svc
+
               echo "Setup temporary OCP user to make ansible happy"
 
               echo "tempuser:x:$(id -u):$(id -g):,,,:${HOME}:/bin/bash" >> /etc/passwd
               echo "tempuser:x:$(id -G | cut -d' ' -f 2)" >> /etc/group
-              id
+
+              oc login --insecure-skip-tls-verify --token=$API_TOKEN $API_SERVER
 
               git clone https://github.com/AdvancedDevSecOpsWorkshop/quay
 
@@ -36,7 +40,7 @@ spec:
 
               ansible-galaxy collection install -r collections/requirements.yaml
 
-              ansible-playbook -vvv quay-configure.yaml -e access_token=$token -e sub_domain=$sub_domain -e users=$users
+              ansible-playbook -vvv quay-configure.yaml -e access_token=$token -e sub_domain=$sub_domain -e users=$(echo $users | xargs)
 
           name: configure-quay
       dnsPolicy: ClusterFirst
