@@ -40,7 +40,7 @@ spec:
 
               ansible-galaxy collection install -r collections/requirements.yaml
 
-              ansible-playbook -vvv quay-configure.yaml -e access_token=$token -e sub_domain=$sub_domain -e users=$(echo $users | xargs)
+              ansible-playbook quay-configure.yaml -e access_token=$token -e sub_domain=$sub_domain -e users=$(echo $users | xargs)
 
           name: configure-quay
       dnsPolicy: ClusterFirst
