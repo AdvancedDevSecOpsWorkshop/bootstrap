@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: dev-tools
+  namespace: user{{ .Values.user }}-argocd
+spec:
+  destination:
+    namespace: user{{ .Values.user }}-cicd
+    server: https://kubernetes.default.svc
+  project: user{{ .Values.user }}
+  source:
+    path: infra/dev-tools/overlays/default
+    repoURL: https://github.com/AdvancedDevSecOpsWorkshop/bootstrap.git
+    targetRevision: HEAD
+  syncPolicy:
+    automated:
+      selfHeal: true
