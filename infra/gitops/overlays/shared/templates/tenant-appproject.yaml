@@ -8,7 +8,7 @@ metadata:
   name: user{{ . }}
   namespace: gitops
 spec:
-  description: product-catalog project
+  description: user{{ . }} project
   destinations:
   - name: in-cluster
     namespace: user{{ . }}-argocd
@@ -19,7 +19,7 @@ spec:
   - name: in-cluster
     namespace: user{{ . }}-prod
   - name: in-cluster
-    namespace: user{{ . }}-tools
+    namespace: user{{ . }}-cicd
   roles:
   - description: user{{ . }} admins
     groups:
