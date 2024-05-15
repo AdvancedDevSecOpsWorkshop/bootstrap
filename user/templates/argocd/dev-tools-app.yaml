@@ -6,7 +6,7 @@ metadata:
 spec:
   destination:
     namespace: user{{ .Values.user }}-cicd
-    server: https://kubernetes.default.svc
+    name: in-cluster
   project: user{{ .Values.user }}
   source:
     path: infra/dev-tools/overlays/default
