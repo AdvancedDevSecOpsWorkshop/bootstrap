@@ -106,6 +106,19 @@ applications:
     source:
       path: infra/pipelines-operator/base
 
+  shared-gitops:
+    annotations:
+      argocd.argoproj.io/sync-wave: '11'
+    destination:
+      namespace: gitops
+    source:
+      path: infra/gitops/overlays/shared
+    extraSourceFields:
+      helm:
+          values: |
+            users: "${USERS}"
+            sub_domain: ${SUB_DOMAIN}
+
   keycloak-instance:
     annotations:
       argocd.argoproj.io/sync-wave: '21'
