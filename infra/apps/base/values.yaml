@@ -67,7 +67,6 @@ applications:
     source:
       path: infra/acs-tokens/base
 
-
   devspaces:
     annotations:
       argocd.argoproj.io/sync-wave: '11'
