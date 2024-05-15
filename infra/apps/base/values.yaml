@@ -46,6 +46,28 @@ applications:
     source:
       path: infra/acs-operator/overlays/oauth
 
+  acs-config:
+    annotations:
+      argocd.argoproj.io/sync-wave: '21'
+    destination:
+      namespace: stackrox
+    source:
+      path: infra/acs-config
+    extraSourceFields:
+      helm:
+          values: |
+            users: "${USERS}"
+            sub_domain: ${SUB_DOMAIN}
+
+  acs-tokens:
+    annotations:
+      argocd.argoproj.io/sync-wave: '21'
+    destination:
+      namespace: stackrox
+    source:
+      path: infra/acs-tokens/base
+
+
   devspaces:
     annotations:
       argocd.argoproj.io/sync-wave: '11'
