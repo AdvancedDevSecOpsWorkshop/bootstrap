@@ -53,11 +53,11 @@ applications:
       namespace: stackrox
     source:
       path: infra/acs-config
-    extraSourceFields:
-      helm:
-          values: |
-            users: "${USERS}"
-            sub_domain: ${SUB_DOMAIN}
+      extraSourceFields:
+        helm:
+            values: |
+              users: "${USERS}"
+              sub_domain: ${SUB_DOMAIN}
 
   acs-tokens:
     annotations:
