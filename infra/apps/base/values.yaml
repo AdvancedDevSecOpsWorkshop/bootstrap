@@ -121,11 +121,11 @@ applications:
       namespace: gitops
     source:
       path: infra/gitops/overlays/shared
-    extraSourceFields:
-      helm:
-          values: |
-            users: "${USERS}"
-            sub_domain: ${SUB_DOMAIN}
+      extraSourceFields:
+        helm:
+            values: |
+              users: "${USERS}"
+              sub_domain: ${SUB_DOMAIN}
 
   keycloak-instance:
     annotations:
