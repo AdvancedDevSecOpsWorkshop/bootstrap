@@ -53,7 +53,7 @@ applications:
       namespace: stackrox
     source:
       path: infra/acs-config
-      extraSourceFields:
+      extraSourceFields: |
         helm:
             values: |
               users: "${USERS}"
@@ -121,7 +121,7 @@ applications:
       namespace: gitops
     source:
       path: infra/gitops/overlays/shared
-      extraSourceFields:
+      extraSourceFields: |
         helm:
             values: |
               users: "${USERS}"
