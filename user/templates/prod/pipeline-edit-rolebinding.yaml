@@ -6,7 +6,7 @@ metadata:
 subjects:
   - kind: ServiceAccount
     name: pipeline
-    namespace: user{{ .Values.user }}-tools
+    namespace: user{{ .Values.user }}-cicd
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
