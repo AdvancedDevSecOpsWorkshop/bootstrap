@@ -127,6 +127,14 @@ applications:
               users: "${USERS}"
               sub_domain: ${SUB_DOMAIN}
 
+  gitops-tokens:
+    annotations:
+      argocd.argoproj.io/sync-wave: '21'
+    destination:
+      namespace: gitops
+    source:
+      path: infra/gitops-pipeline-tokens/base
+
   keycloak-instance:
     annotations:
       argocd.argoproj.io/sync-wave: '21'

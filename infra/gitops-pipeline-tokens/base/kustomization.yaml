@@ -1,0 +1,5 @@
+namespace: gitops
+
+resources:
+- create-tokens-sa-rbac.yaml
+- create-tokens-job.yaml
