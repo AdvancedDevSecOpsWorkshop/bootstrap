@@ -27,7 +27,6 @@ spec:
               exit 1
             fi
 
-            IFS=' '
             # Note users here replaced by ArgoCD plugin
             for i in $(seq 1 ${USERS});
                 account="user${i}-pipeline"
