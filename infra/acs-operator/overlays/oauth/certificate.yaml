@@ -9,7 +9,6 @@ spec:
   secretName: central-default-tls-cert
   renewBefore: 240h0m0s
   duration: 2160h0m0s
-  commonName: central-stackrox
   dnsNames:
   - central-stackrox.${SUB_DOMAIN}
   issuerRef:
