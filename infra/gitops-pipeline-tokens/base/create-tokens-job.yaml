@@ -10,7 +10,7 @@ spec:
   template:
     spec:
       containers:
-      - image: registry.redhat.io/openshift-gitops-1/argocd-rhel8:1.12
+      - image: registry.redhat.io/openshift-gitops-1/argocd-rhel8:1.7
         command:
           - /bin/bash
           - -c
