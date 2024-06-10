@@ -29,6 +29,7 @@ spec:
 
             # Note users here replaced by ArgoCD plugin
             for i in $(seq 1 ${USERS});
+            do
                 account="user${i}-pipeline"
                 namespace="user${i}-cicd"
                 echo "Generating token for user${i} with local account ${account} in namespace ${namespace}"
