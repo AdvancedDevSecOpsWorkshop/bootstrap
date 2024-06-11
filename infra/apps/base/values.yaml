@@ -81,7 +81,6 @@ applications:
     source:
       path: infra/odf/instance/base
 
-
   devspaces:
     annotations:
       argocd.argoproj.io/sync-wave: '11'
