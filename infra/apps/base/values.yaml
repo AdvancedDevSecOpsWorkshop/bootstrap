@@ -67,6 +67,21 @@ applications:
     source:
       path: infra/acs-tokens/base
 
+  odf-operator:
+    annotations:
+      argocd.argoproj.io/sync-wave: '11'
+    source:
+      path: infra/odf/operator/overlays/workshop
+
+  odf-instance:
+    annotations:
+      argocd.argoproj.io/sync-wave: '21'
+    destination:
+      namespace: openshift-storage
+    source:
+      path: infra/odf/instance/base
+
+
   devspaces:
     annotations:
       argocd.argoproj.io/sync-wave: '11'
