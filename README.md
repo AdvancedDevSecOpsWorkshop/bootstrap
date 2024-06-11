@@ -54,6 +54,8 @@ top right and select "Site Administration". Configure a new OAuth2 provider with
 
 ![alt text](https://raw.githubusercontent.com/AdvancedDevSecOpsWorkshop/bootstrap/main/docs/img/gitea-keycloak.png)
 
+Note when logging in with Gitea using Keycloak for the userX accounts you need to select the tab for `Link Account` since the users have been pre-created by the operator. The password to use to link the the account is `openshift`. This only needs to be done once.
+
 ### Troubleshooting
 #### Check in Cluster Argo CD that all Applications are in Sync and not Degraded
 Login into the Cluster Argo CD and ensure that all Applications are Healthy and in Sync. Note that if Keycloak is down you may need to login using the admin account and the password stored in the openshift-gitops-cluster secret.
