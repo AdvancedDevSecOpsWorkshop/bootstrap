@@ -41,7 +41,16 @@ oc create secret -n quay-operator generic api-token --from-literal=token=<token>
 #### Gitea
 
 The connection to Keycloak must be manually done as there doesn't appear to be an API for it. Login in as gitea-admin/openshift and then click on the icon in the
-top right and select "Site Settings". Configure a new OAuth2 provider with the settings in this screenshot:
+top right and select "Site Administration". Configure a new OAuth2 provider with the settings in screenshot screenshot below:
+
+Authentication Type: `OAuth2`
+Authentication Name: `Keycloak`
+Authentication Provider: `OpenID Connect`
+Client ID: `gitea`
+Client Secret: `c7eae76c-bd26-4588-90b5-fa7a7520fb6b`
+OpenID Connect Discovery URL: Get this from the Keycloak UI, OpenShift Realm, Realm Settings, General Tab copy the link called `OpenID Endpoint Configuration`
+Claim name providing group names for this source. (Optional): `groups`
+Group Claim value for administrator users. (Optional - requires claim name above): `cluster-admins`
 
 ![alt text](https://raw.githubusercontent.com/AdvancedDevSecOpsWorkshop/bootstrap/main/docs/img/gitea-keycloak.png)
 
