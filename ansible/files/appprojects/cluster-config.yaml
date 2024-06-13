@@ -20,4 +20,4 @@ spec:
       groups:
         developers
       policies:
-        - p, proj:users:developer, applications, get, {{ $.Values.tenant }}/*, allow
+        - p, proj:users:developer, applications, get, *, allow
