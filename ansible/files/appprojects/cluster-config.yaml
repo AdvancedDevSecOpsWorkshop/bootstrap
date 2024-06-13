@@ -18,6 +18,6 @@ spec:
     - description: developers
       name: developer
       groups:
-        developers
+        - developers
       policies:
         - p, proj:users:developer, applications, get, *, allow
