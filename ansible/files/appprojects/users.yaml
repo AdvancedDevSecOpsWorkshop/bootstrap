@@ -14,3 +14,11 @@ spec:
   sourceRepos:
     - 'https://github.com/redhat-cop/gitops-catalog'
     - 'https://github.com/AdvancedDevSecOpsWorkshop/workshop'
+  roles:
+    - description: developers
+      name: developer
+      groups:
+        developers
+      policies:
+        - p, proj:users:developer, applications, get, {{ $.Values.tenant }}/*, allow
+        - p, proj:users:developer, applications, sync, {{ $.Values.tenant }}/*, allow
