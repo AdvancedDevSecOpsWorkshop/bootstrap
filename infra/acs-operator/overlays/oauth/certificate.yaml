@@ -12,5 +12,5 @@ spec:
   dnsNames:
   - central-stackrox.${SUB_DOMAIN}
   issuerRef:
-    name: letsencrypt-production-ec2
+    name: letsencrypt
     kind: ClusterIssuer
