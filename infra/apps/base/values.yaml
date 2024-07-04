@@ -134,7 +134,7 @@ applications:
     destination:
       namespace: openshift-pipelines
     source:
-      path: infra/pipelines-operator/base
+      path: infra/pipelines-operator/overlays/chains
 
   openshift-gitops:
     annotations:
