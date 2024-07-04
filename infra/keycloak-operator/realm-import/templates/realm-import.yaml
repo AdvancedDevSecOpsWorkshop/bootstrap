@@ -464,7 +464,11 @@ spec:
     clients:
     - id: d77aabec-d7a3-4fb1-a47c-79397b4dc29b
       clientId: tekton-builder
-      name: tekton-builder
+      name: ''
+      description: ''
+      rootUrl: ''
+      adminUrl: ''
+      baseUrl: ''
       surrogateAuthRequired: false
       enabled: true
       alwaysDisplayInConsole: false
@@ -495,7 +499,55 @@ spec:
       fullScopeAllowed: true
       nodeReRegistrationTimeout: -1
       protocolMappers:
-    - id: c1274001-f3a4-4304-89d2-4f57fc3b2649
+      - id: 6738d27d-2284-4ed1-a998-90a89bd0b80c
+        name: Client ID
+        protocol: openid-connect
+        protocolMapper: oidc-usersessionmodel-note-mapper
+        consentRequired: false
+        config:
+          user.session.note: client_id
+          introspection.token.claim: 'true'
+          id.token.claim: 'true'
+          access.token.claim: 'true'
+          claim.name: client_id
+          jsonType.label: String
+      - id: 805bf994-191d-4d62-83cc-f7e54c8dd15a
+        name: Client IP Address
+        protocol: openid-connect
+        protocolMapper: oidc-usersessionmodel-note-mapper
+        consentRequired: false
+        config:
+          user.session.note: clientAddress
+          introspection.token.claim: 'true'
+          id.token.claim: 'true'
+          access.token.claim: 'true'
+          claim.name: clientAddress
+          jsonType.label: String
+      - id: 76e3044f-14e5-4e50-a66a-82f81620a59e
+        name: Client Host
+        protocol: openid-connect
+        protocolMapper: oidc-usersessionmodel-note-mapper
+        consentRequired: false
+        config:
+          user.session.note: clientHost
+          introspection.token.claim: 'true'
+          id.token.claim: 'true'
+          access.token.claim: 'true'
+          claim.name: clientHost
+          jsonType.label: String
+      defaultClientScopes:
+      - web-origins
+      - acr
+      - profile
+      - roles
+      - trusted-artifact-signer
+      - email
+      optionalClientScopes:
+      - address
+      - phone
+      - offline_access
+      - microprofile-jwt
+    - id: b3c466d3-7326-4ec8-b911-524965365ea4
       clientId: trusted-artifact-signer
       name: trusted-artifact-signer
       description: Trusted Artifact Signer
@@ -540,10 +592,6 @@ spec:
       - phone
       - offline_access
       - microprofile-jwt
-      access:
-        view: true
-        configure: true
-        manage: true
     - id: 2cc7ef7e-1a34-4caa-a4ec-9a3d08bf7dc8
       clientId: argocd
       name: Argo CD
