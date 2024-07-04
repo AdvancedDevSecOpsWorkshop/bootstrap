@@ -461,6 +461,88 @@ spec:
           access.token.claim: 'true'
           claim.name: groups
     clients:
+    - id: 2d8c39a3-e298-411b-8852-723024fc585d
+      clientId: tekton-builder
+      name: tekton-builder
+      description: Client for Tekton chains to fetch token
+      rootUrl: ''
+      adminUrl: ''
+      baseUrl: ''
+      surrogateAuthRequired: false
+      enabled: true
+      alwaysDisplayInConsole: false
+      clientAuthenticatorType: client-secret
+      secret: nSaCjTih0dMHGBDfMC33rTCiw2sfDz6m
+      redirectUris:
+      - "/*"
+      webOrigins:
+      - "/*"
+      notBefore: 0
+      bearerOnly: false
+      consentRequired: false
+      standardFlowEnabled: true
+      implicitFlowEnabled: false
+      directAccessGrantsEnabled: true
+      serviceAccountsEnabled: true
+      publicClient: false
+      frontchannelLogout: true
+      protocol: openid-connect
+      attributes:
+        oidc.ciba.grant.enabled: 'false'
+        oauth2.device.authorization.grant.enabled: 'false'
+        client.secret.creation.time: '1720128506'
+        backchannel.logout.session.required: 'true'
+        backchannel.logout.revoke.offline.tokens: 'false'
+      authenticationFlowBindingOverrides: {}
+      fullScopeAllowed: true
+      nodeReRegistrationTimeout: -1
+      protocolMappers:
+      - id: 991d0c21-812e-4383-b129-28e2c586ed62
+        name: Client Host
+        protocol: openid-connect
+        protocolMapper: oidc-usersessionmodel-note-mapper
+        consentRequired: false
+        config:
+          user.session.note: clientHost
+          id.token.claim: 'true'
+          access.token.claim: 'true'
+          claim.name: clientHost
+          jsonType.label: String
+      - id: dacb30ec-ffbd-4900-ab76-e18b2dbf8cf2
+        name: Client IP Address
+        protocol: openid-connect
+        protocolMapper: oidc-usersessionmodel-note-mapper
+        consentRequired: false
+        config:
+          user.session.note: clientAddress
+          id.token.claim: 'true'
+          access.token.claim: 'true'
+          claim.name: clientAddress
+          jsonType.label: String
+      - id: d0d97c13-5774-42f0-b20b-29999de28ff2
+        name: Client ID
+        protocol: openid-connect
+        protocolMapper: oidc-usersessionmodel-note-mapper
+        consentRequired: false
+        config:
+          user.session.note: client_id
+          id.token.claim: 'true'
+          access.token.claim: 'true'
+          claim.name: client_id
+          jsonType.label: String
+      defaultClientScopes:
+      - web-origins
+      - acr
+      - phone
+      - profile
+      - roles
+      - trusted-artifact-signer
+      - groups
+      - email
+      optionalClientScopes:
+      - address
+      - offline_access
+      - microprofile-jwt
     - id: 691e06d7-7c72-4c9a-9bf6-49c3a972b495
       clientId: trusted-artifact-signer
       name: trusted-artifact-signer
@@ -792,6 +874,19 @@ spec:
         path: /team{{ . }}
 {{- end }}
     users:
+      - id: 1e66c217-1bf5-4101-9095-3ee6a2c8fa18
+        username: service-account-tekton-builder
+        enabled: true
+        totp: false
+        emailVerified: true
+        email: tekton-builder@rhdp.com
+        serviceAccountClientId: tekton-builder
+        disableableCredentialTypes: []
+        requiredActions: []
+        realmRoles:
+        - default-roles-openshift
+        notBefore: 0
+        groups: []
       - id: clusteradmin
         username: clusteradmin
         enabled: true
@@ -802,7 +897,6 @@ spec:
 {{- range untilStep 1 (int ($.Values.users | add 1)) 1 }}
           - team{{ . }}
 {{- end }}
-
         credentials:
         - type: password
           hashedSaltedValue: 5Mhqu6I43dSlDqVzpbv5yVjMYrTKOY4mbTwJu+1B0SA=
