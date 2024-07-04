@@ -32,13 +32,11 @@ spec:
     clientScopes:
     - id: 5d019952-1876-49f5-8fe8-8f22d2b84c9b
       name: trusted-artifact-signer
-      description: Audience for Trusted Artifact Signer
+      description: 'Audience for Trusted Artifact Signer'
       protocol: openid-connect
       attributes:
         include.in.token.scope: 'true'
-        display.on.consent.screen: 'true'
-        gui.order: ''
-        consent.screen.text: ''
+        display.on.consent.screen: 'false'
       protocolMappers:
       - id: 69bd6049-d6c1-48bc-8daa-b66d18a10d6f
         name: trusted-artifact-signer
@@ -464,8 +462,8 @@ spec:
     clients:
     - id: d77aabec-d7a3-4fb1-a47c-79397b4dc29b
       clientId: tekton-builder
-      name: ''
-      description: ''
+      name: tekton-builder
+      description: 'Used with Tekton Chains for signing images'
       rootUrl: ''
       adminUrl: ''
       baseUrl: ''
