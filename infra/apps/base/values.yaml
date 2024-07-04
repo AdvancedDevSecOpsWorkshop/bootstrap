@@ -81,6 +81,22 @@ applications:
     source:
       path: infra/odf/instance/base
 
+  rhtas-operator:
+    annotations:
+      argocd.argoproj.io/sync-wave: '21'
+    destination:
+      namespace: rhtas-operator
+    source:
+      path: infra/rhtas-operator/operator/base
+
+  rhtas-instance:
+    annotations:
+      argocd.argoproj.io/sync-wave: '31'
+    destination:
+      namespace: trusted-artifact-signer
+    source:
+      path: infra/rhtas-operator/instance/base
+
   devspaces:
     annotations:
       argocd.argoproj.io/sync-wave: '11'
