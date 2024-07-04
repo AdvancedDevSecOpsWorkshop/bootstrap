@@ -30,6 +30,25 @@ spec:
     maxDeltaTimeSeconds: 43200
     failureFactor: 30
     clientScopes:
+    - id: 3a497f7a-77b0-4152-bde4-1845972ace63
+      name: trusted-artifact-signer
+      description: Audience for Trusted Artifact Signer
+      protocol: openid-connect
+      attributes:
+        include.in.token.scope: 'true'
+        display.on.consent.screen: 'true'
+        gui.order: ''
+        consent.screen.text: ''
+      protocolMappers:
+      - id: b428a50c-97b4-4651-a9d3-421377bb94db
+        name: trusted-artifact-signer
+        protocol: openid-connect
+        protocolMapper: oidc-audience-mapper
+        consentRequired: false
+        config:
+          included.client.audience: trusted-artifact-signer
+          id.token.claim: 'true'
+          access.token.claim: 'true'
     - id: 45468e71-b1c1-414b-92d9-a5cba9d2c054
       name: profile
       description: 'OpenID Connect built-in scope: profile'
@@ -442,6 +461,51 @@ spec:
           access.token.claim: 'true'
           claim.name: groups
     clients:
+    - id: 691e06d7-7c72-4c9a-9bf6-49c3a972b495
+      clientId: trusted-artifact-signer
+      name: trusted-artifact-signer
+      description: Trusted Artifact Signer
+      rootUrl: ''
+      adminUrl: ''
+      baseUrl: ''
+      surrogateAuthRequired: false
+      enabled: true
+      alwaysDisplayInConsole: false
+      clientAuthenticatorType: client-secret
+      redirectUris:
+      - "*"
+      webOrigins: []
+      notBefore: 0
+      bearerOnly: false
+      consentRequired: false
+      standardFlowEnabled: true
+      implicitFlowEnabled: false
+      directAccessGrantsEnabled: true
+      serviceAccountsEnabled: false
+      publicClient: true
+      frontchannelLogout: true
+      protocol: openid-connect
+      attributes:
+        oidc.ciba.grant.enabled: 'false'
+        oauth2.device.authorization.grant.enabled: 'false'
+        backchannel.logout.session.required: 'true'
+        backchannel.logout.revoke.offline.tokens: 'false'
+      authenticationFlowBindingOverrides: {}
+      fullScopeAllowed: true
+      nodeReRegistrationTimeout: -1
+      defaultClientScopes:
+      - web-origins
+      - acr
+      - phone
+      - profile
+      - roles
+      - trusted-artifact-signer
+      - groups
+      - email
+      optionalClientScopes:
+      - address
+      - offline_access
+      - microprofile-jwt
     - id: 2cc7ef7e-1a34-4caa-a4ec-9a3d08bf7dc8
       clientId: argocd
       name: Argo CD
