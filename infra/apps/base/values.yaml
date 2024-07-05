@@ -144,6 +144,14 @@ applications:
     source:
       path: infra/openshift-gitops/base
 
+  serverless-operator:
+    annotations:
+      argocd.argoproj.io/sync-wave: '11'
+    destination:
+      namespace: openshift-serverless
+    source:
+      path: infra/serverless-operator/operator/base
+
   shared-gitops:
     annotations:
       argocd.argoproj.io/sync-wave: '11'
@@ -214,3 +222,11 @@ applications:
         - /data/config.yaml
         name: config-bundle-secret
         namespace: quay-operator
+
+  serverless-instance:
+    annotations:
+      argocd.argoproj.io/sync-wave: '61'
+    destination:
+      namespace: knative-serving
+    source:
+      path: infra/serverless-operator/instance/base
