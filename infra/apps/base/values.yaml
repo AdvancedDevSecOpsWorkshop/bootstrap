@@ -81,6 +81,14 @@ applications:
     source:
       path: infra/odf/instance/base
 
+  amq-streams:
+    annotations:
+      argocd.argoproj.io/sync-wave: '21'
+    destination:
+      namespace: openshift-operators
+    source:
+      path: infra/amq-streams/base
+
   rhtas-operator:
     annotations:
       argocd.argoproj.io/sync-wave: '21'
@@ -96,6 +104,15 @@ applications:
       namespace: trusted-artifact-signer
     source:
       path: infra/rhtas-operator/instance/base
+
+  rhtpa:
+    annotations:
+      argocd.argoproj.io/sync-wave: '31'
+    destination:
+      namespace: trusted-profile-analyzer
+    source:
+      path: infra/rhtpa/base
+
 
   devspaces:
     annotations:
