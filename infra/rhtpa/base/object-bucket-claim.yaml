@@ -1,0 +1,11 @@
+apiVersion: objectbucket.io/v1alpha1
+kind: ObjectBucketClaim
+metadata:
+  name: tpa
+  namespace: trusted-profile-analyzer
+spec:
+  additionalConfig:
+    bucketclass: noobaa-default-bucket-class
+  bucketName: tpa-3f34b06f-042b-4cab-9eb5-900efcf50368
+  generateBucketName: tpa
+  objectBucketName: obc-trusted-profile-analyzer-
