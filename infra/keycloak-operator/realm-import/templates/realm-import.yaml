@@ -12,7 +12,7 @@ spec:
     realm: openshift
     displayName: OpenShift
     enabled: true
-    sslRequired: external
+    sslRequired: none
     registrationAllowed: false
     registrationEmailAsUsername: false
     rememberMe: false
@@ -888,9 +888,13 @@ spec:
         notBefore: 0
         groups: []
       - id: clusteradmin
+        createdTimestamp: 1721253062948
         username: clusteradmin
+        firstName: Cluster
+        lastName: Admin
         enabled: true
-        email: clusteradmin@workshop-noreply.com
+        emailVerified: true
+        email: clusteradmin@workshop.com
         groups:
           - developers
           - cluster-admins
@@ -907,9 +911,11 @@ spec:
           digits: 0
           period: 0
       - id: admin
+        createdTimestamp: 1721253062948
         username: admin
         enabled: true
-        email: admin@workshop-noreply.com
+        emailVerified: true
+        email: admin@workshop.com
         groups:
           - developers
           - cluster-admins
@@ -925,6 +931,9 @@ spec:
 {{- range untilStep 1 (int ($.Values.users | add 1)) 1 }}
       - id: user{{ . }}
         username: user{{ . }}
+        firstName: User{{ . }}
+        lastName: Workshop
+        createdTimestamp: 1721253062948
         email: user{{ . }}@workshop-noreply.com
         enabled: true
         groups:
