@@ -935,6 +935,7 @@ spec:
         lastName: Workshop
         createdTimestamp: 1721253062948
         email: user{{ . }}@workshop-noreply.com
+        emailVerified: true
         enabled: true
         groups:
           - developers
