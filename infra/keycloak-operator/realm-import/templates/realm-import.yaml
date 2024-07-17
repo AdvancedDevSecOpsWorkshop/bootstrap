@@ -895,6 +895,8 @@ spec:
         enabled: true
         emailVerified: true
         email: clusteradmin@workshop.com
+        realmRoles:
+        - default-roles-openshift
         groups:
           - developers
           - cluster-admins
@@ -916,6 +918,8 @@ spec:
         enabled: true
         emailVerified: true
         email: admin@workshop.com
+        realmRoles:
+        - default-roles-openshift
         groups:
           - developers
           - cluster-admins
@@ -934,7 +938,9 @@ spec:
         firstName: User{{ . }}
         lastName: Workshop
         createdTimestamp: 1721253062948
-        email: user{{ . }}@workshop-noreply.com
+        email: user{{ . }}@workshop.com
+        realmRoles:
+        - default-roles-openshift
         emailVerified: true
         enabled: true
         groups:
