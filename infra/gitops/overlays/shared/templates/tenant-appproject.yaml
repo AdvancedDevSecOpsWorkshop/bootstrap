@@ -23,18 +23,18 @@ spec:
   roles:
   - description: user{{ . }} admins
     groups:
-    - user{{ . }}
+    - team{{ . }}
     name: admin
     policies:
-    - p, proj:product-catalog:admin, applications, *, product-catalog/*, allow
-    - p, proj:product-catalog:admin, exec, create, product-catalog/*, allow
+    - p, proj:user{{ . }}:admin, applications, *, user{{ . }}/*, allow
+    - p, proj:user{{ . }}:admin, exec, create, user{{ . }}/*, allow
   - description: Pipeline accounts
     groups:
     - user{{ . }}-pipeline
     name: pipeline
     policies:
-    - p, proj:product-catalog:pipeline, applications, get, product-catalog/*, allow
-    - p, proj:product-catalog:pipeline, applications, sync, product-catalog/*, allow
+    - p, proj:user{{ . }}:pipeline, applications, get, user{{ . }}/*, allow
+    - p, proj:user{{ . }}:pipeline, applications, sync, user{{ . }}/*, allow
   sourceNamespaces:
   - user{{ . }}-argocd
   sourceRepos:
