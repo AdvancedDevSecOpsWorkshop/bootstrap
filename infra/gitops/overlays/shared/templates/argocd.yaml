@@ -58,6 +58,7 @@ spec:
       g, cluster-admins, role:admin
       p, role:developers, clusters, get, *, allow
       p, role:developers, repositories, get, *, allow
+      p, role:developers, projects, get, global, allow
       g, developers, role:developers
     scopes: '[accounts,groups,email]'
   repo:

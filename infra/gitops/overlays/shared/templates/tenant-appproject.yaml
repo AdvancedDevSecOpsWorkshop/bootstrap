@@ -5,7 +5,7 @@ kind: AppProject
 metadata:
   labels:
     argocd.argoproj.io/project-inherit: global
-  name: user{{ . }}
+  name: team{{ . }}
   namespace: gitops
 spec:
   description: user{{ . }} project
@@ -21,7 +21,7 @@ spec:
   - name: in-cluster
     namespace: user{{ . }}-cicd
   roles:
-  - description: user{{ . }} admins
+  - description: Team{{ . }} admins
     groups:
     - team{{ . }}
     name: admin
