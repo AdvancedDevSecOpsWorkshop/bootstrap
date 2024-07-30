@@ -24,6 +24,7 @@ spec:
   - description: Team{{ . }} admins
     groups:
     - team{{ . }}
+    - user{{ . }}-cli
     name: admin
     policies:
     - p, proj:user{{ . }}:admin, applications, *, user{{ . }}/*, allow

@@ -33,6 +33,8 @@ spec:
                 account="user${i}-pipeline"
                 namespace="user${i}-cicd"
                 echo "Generating token for user${i} with local account ${account} in namespace ${namespace}"
+
+                # Create environment secret
                 HAS_SECRET=$(kubectl get secret argocd-env-secret -n $namespace --ignore-not-found)
                 if [ -z "$HAS_SECRET" ];
                 then
@@ -51,6 +53,32 @@ spec:
                   fi
                 else
                   echo "The secret argocd-env-secret already exists, skipping"
+                fi
+
+                # Create cli secret
+                # Todo, make this a function instead of copy-paste code
+                account="user${i}-cli"
+                namespace="user${i}-argocd"
+                echo "Generating token for user${i} with local account ${account} in namespace ${namespace}"
+
+                HAS_SECRET=$(kubectl get secret argocd-cli -n $namespace --ignore-not-found)
+                if [ -z "$HAS_SECRET" ];
+                then
+                  echo "No argo-cli present in $namespace, creating"
+                  echo "Using service ${ARGO_INSTANCE_NAME}-server"
+                  argocd login --plaintext --username admin --password ${PASSWORD} "${ARGO_INSTANCE_NAME}-server"
+                  echo "Generating token for ${account}"
+                  TOKEN=$(argocd account generate-token --account ${account})
+                  if [ "$TOKEN" ];
+                  then
+                    echo "Creating secret argocd-cli in namespace ${namespace}"
+                    kubectl create secret generic argocd-cli --from-literal=ARGOCD_AUTH_TOKEN=${TOKEN} --from-literal=ARGOCD_USERNAME=${account} --from-literal=ARGOCD_SERVER=${ARGO_SERVER_HOST} -n ${namespace}
+                  else
+                    echo "Token $TOKEN could not be generated, no secret created"
+                    exit 1
+                  fi
+                else
+                  echo "The secret argocd-cli already exists, skipping"
                 fi
             done
         env:
