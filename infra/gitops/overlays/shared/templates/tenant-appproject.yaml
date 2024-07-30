@@ -27,15 +27,15 @@ spec:
     - user{{ . }}-cli
     name: admin
     policies:
-    - p, proj:user{{ . }}:admin, applications, *, user{{ . }}/*, allow
-    - p, proj:user{{ . }}:admin, exec, create, user{{ . }}/*, allow
+    - p, proj:team{{ . }}:admin, applications, *, team{{ . }}/*, allow
+    - p, proj:team{{ . }}:admin, exec, create, team{{ . }}/*, allow
   - description: Pipeline accounts
     groups:
     - user{{ . }}-pipeline
     name: pipeline
     policies:
-    - p, proj:user{{ . }}:pipeline, applications, get, user{{ . }}/*, allow
-    - p, proj:user{{ . }}:pipeline, applications, sync, user{{ . }}/*, allow
+    - p, proj:team{{ . }}:pipeline, applications, get, team{{ . }}/*, allow
+    - p, proj:team{{ . }}:pipeline, applications, sync, team{{ . }}/*, allow
   sourceNamespaces:
   - user{{ . }}-argocd
   sourceRepos:
