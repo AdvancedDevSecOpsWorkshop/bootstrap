@@ -7,7 +7,7 @@ spec:
   destination:
     namespace: user{{ .Values.user }}-cicd
     name: in-cluster
-  project: team{{ .Values.user }}
+  project: user{{ .Values.user }}
   source:
     path: infra/dev-tools/overlays/default
     repoURL: https://github.com/AdvancedDevSecOpsWorkshop/bootstrap.git

@@ -5,7 +5,7 @@ kind: AppProject
 metadata:
   labels:
     argocd.argoproj.io/project-inherit: global
-  name: team{{ . }}
+  name: user{{ . }}
   namespace: gitops
 spec:
   description: user{{ . }} project
@@ -27,15 +27,15 @@ spec:
     - user{{ . }}-cli
     name: admin
     policies:
-    - p, proj:team{{ . }}:admin, applications, *, team{{ . }}/*, allow
-    - p, proj:team{{ . }}:admin, exec, create, team{{ . }}/*, allow
+    - p, proj:user{{ . }}:admin, applications, *, user{{ . }}/*, allow
+    - p, proj:user{{ . }}:admin, exec, create, user{{ . }}/*, allow
   - description: Pipeline accounts
     groups:
     - user{{ . }}-pipeline
     name: pipeline
     policies:
-    - p, proj:team{{ . }}:pipeline, applications, get, team{{ . }}/*, allow
-    - p, proj:team{{ . }}:pipeline, applications, sync, team{{ . }}/*, allow
+    - p, proj:user{{ . }}:pipeline, applications, get, user{{ . }}/*, allow
+    - p, proj:user{{ . }}:pipeline, applications, sync, user{{ . }}/*, allow
   sourceNamespaces:
   - user{{ . }}-argocd
   sourceRepos:
