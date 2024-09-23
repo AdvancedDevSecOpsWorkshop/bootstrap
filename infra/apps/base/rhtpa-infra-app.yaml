@@ -28,3 +28,8 @@ spec:
       - CreateNamespace=true
     automated:
       selfHeal: true
+  ignoreDifferences:
+  - group: postgres-operator.crunchydata.com
+    kind: PostgresCluster
+    jsonPointers:
+    - spec/backups/pgbackrest/config
