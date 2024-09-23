@@ -89,6 +89,14 @@ applications:
     source:
       path: infra/amq-streams/base
 
+  crunchy:
+    annotations:
+      argocd.argoproj.io/sync-wave: '21'
+    destination:
+      namespace: openshift-operators
+    source:
+      path: infra/crunchy/base
+
   rhtas-operator:
     annotations:
       argocd.argoproj.io/sync-wave: '21'
