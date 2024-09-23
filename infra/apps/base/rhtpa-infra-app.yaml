@@ -32,4 +32,4 @@ spec:
   - group: postgres-operator.crunchydata.com
     kind: PostgresCluster
     jsonPointers:
-    - spec/backups/pgbackrest/config
+    - /spec/backups/pgbackrest/config
