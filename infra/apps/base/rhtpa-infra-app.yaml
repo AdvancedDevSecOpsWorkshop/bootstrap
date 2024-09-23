@@ -19,9 +19,8 @@ spec:
     targetRevision: release-1.2
     helm:
       valueFiles:
-      - $values/charts/prometheus/values.yaml
+      - $values/infra/rhtpa/infra/base/values.yaml
   - repoURL: 'https://github.com/AdvancedDevSecOpsWorkshop/bootstrap'
-    path: infra/rhtpa/infra/base
     targetRevision: HEAD
     ref: values
   syncPolicy:
