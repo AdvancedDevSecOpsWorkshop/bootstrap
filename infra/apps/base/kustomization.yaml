@@ -7,3 +7,6 @@ helmCharts:
   repo: https://gnunn-gitops.github.io/helm-charts
   valuesFile: values.yaml
   namespace: openshift-gitops
+
+resources:
+- rhtpa-infra-app.yaml
