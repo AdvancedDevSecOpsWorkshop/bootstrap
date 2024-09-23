@@ -14,7 +14,7 @@ spec:
     server: https://kubernetes.default.svc
   project: cluster-config
   sources:
-  - repoURL: 'https://github.com/redhat-appstudio'
+  - repoURL: 'https://github.com/redhat-appstudio/rhtap-cli'
     path: charts/rhtap-infrastructure
     targetRevision: release-1.2
     helm:
