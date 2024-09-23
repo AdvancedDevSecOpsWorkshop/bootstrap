@@ -97,6 +97,14 @@ applications:
     source:
       path: infra/crunchy/base
 
+  minio:
+    annotations:
+      argocd.argoproj.io/sync-wave: '21'
+    destination:
+      namespace: minio-operator
+    source:
+      path: infra/minio/base
+
   rhtas-operator:
     annotations:
       argocd.argoproj.io/sync-wave: '21'
