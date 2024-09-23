@@ -60,7 +60,7 @@ infrastructure:
     # documents and to create integration with Kafka, a message is issued upon
     # document creation.
     tpa:
-      enabled: false
+      enabled: true
       # Target namespace for the MinIO Tenant and related resources.
       namespace: trusted-profile-analyzer
       # Enable the Ingress resource to expose the MinIO Tenant.
@@ -89,7 +89,7 @@ infrastructure:
       kafkaNotify:
         enabled: true
         # Kafka bootstrap servers.
-        bootstrapServers: __OVERWRITE_ME__
+        bootstrapServers: tpa-kafka-bootstrap
         # Kafka username.
         username: admin
         # Secret with Kafka's password (valueFrom).
