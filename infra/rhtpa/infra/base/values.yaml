@@ -93,7 +93,11 @@ infrastructure:
         # Kafka username.
         username: admin
         # Secret with Kafka's password (valueFrom).
-        password: {}
+        password:
+          valueFrom:
+            secretKeyRef:
+              name: admin
+              key: password
         # The list of buckets and Kafka topics as well the events that will
         # trigger sending a message to the topic.
         topics:
