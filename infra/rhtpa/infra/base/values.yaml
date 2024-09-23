@@ -68,7 +68,7 @@ infrastructure:
         # Toggle the route resource creation.
         enabled: false
         # The Ingress domain.
-        domain: __OVERWRITE_ME__
+        domain: ${SUB_DOMAIN}
       # Secret name to store MinIO's root password, the password is generated when
       # the secret is empty.
       rootSecretName: tpa-minio-root-env
