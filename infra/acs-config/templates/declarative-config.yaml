@@ -23,7 +23,7 @@ data:
           role: Admin
         {{- range untilStep 1 (int ($.Values.users | add 1)) 1 }}
         - key: email
-          value: user{{ . }}@workshop-noreply.com
+          value: user{{ . }}@workshop.com
           role: user{{ . }}
         {{- end }}
   openshift-auth.yaml: |
