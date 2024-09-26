@@ -2,7 +2,8 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   annotations:
-    argocd.argoproj.io/sync-wave: '25'
+    # Do this at the end since Minio tenant takes forever to come online
+    argocd.argoproj.io/sync-wave: '81'
   labels:
     app-source: local.home
     repo: cluster-config
