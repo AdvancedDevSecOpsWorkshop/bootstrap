@@ -64,6 +64,10 @@ You will need to login as the cluster administrator and under compliance press t
 #### Check in Cluster Argo CD that all Applications are in Sync and not Degraded
 Login into the Cluster Argo CD and ensure that all Applications are Healthy and in Sync. Note that if Keycloak is down you may need to login using the admin account and the password stored in the openshift-gitops-cluster secret.
 
+#### Keycloak login option doesn't appear
+This most often occurs because Argo CD did not properly sync all of the applications. Login using the RHDP `admin` credential and then login into Argo CD using it's hardcoded admin/password in the `openshift-gitops-cluster` secret
+as per above. In most cases fixing the issue is simply a matter of syncing whichever application is blocking the sync wave.
+
 ##### Certificate fails to be provisioned
 If any of the certificates fail to be provisioned you can use the cmctl tool to request a manual renewal:
 
