@@ -10,4 +10,4 @@ helmCharts:
 
 resources:
 - rhtpa-infra-app.yaml
-- rhtpa.yaml
+# - rhtpa.yaml
