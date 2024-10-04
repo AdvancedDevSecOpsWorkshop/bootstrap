@@ -1,0 +1,40 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  annotations:
+    # Do this at the end since Minio tenant takes forever to come online
+    argocd.argoproj.io/sync-wave: '91'
+  labels:
+    app-source: local.home
+    repo: cluster-config
+  name: rhtpa
+  namespace: openshift-gitops
+spec:
+  destination:
+    namespace: trusted-profile-analyzer
+    server: https://kubernetes.default.svc
+  project: cluster-config
+  sources:
+  - chart: redhat-trusted-profile-analyzer
+    repoURL: 'https://charts.openshift.io'
+    path: charts/rhtap-infrastructure
+    targetRevision: 0.1.2
+    helm:
+      valueFiles:
+      - $values/infra/rhtpa/operator/base/values.yaml
+      parameters:
+        - name: appDomain
+          value: ${SUB_DOMAIN}
+  - repoURL: 'https://github.com/AdvancedDevSecOpsWorkshop/bootstrap'
+    targetRevision: HEAD
+    ref: values
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+    automated:
+      selfHeal: true
+  ignoreDifferences:
+  - group: postgres-operator.crunchydata.com
+    kind: PostgresCluster
+    jsonPointers:
+    - /spec/backups/pgbackrest/config

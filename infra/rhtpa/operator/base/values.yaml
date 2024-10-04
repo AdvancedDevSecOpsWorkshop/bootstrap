@@ -9,7 +9,7 @@ storage:
    valueFrom:
      secretKeyRef:
        name: tpa
-          key: AWS_ACCESS_KEY_ID
+       key: AWS_ACCESS_KEY_ID
  secretKey:
    valueFrom:
      secretKeyRef:
@@ -30,12 +30,12 @@ eventBus:
     mechanism: SCRAM-SHA-512
 
 oidc:
-  issuerUrl: OIDC_ISSUER_URL
+  issuerUrl: https://keycloak.{{ $.Values.appDomain }}/realms/openshift
   clients:
    frontend:
-     clientId: FRONTEND_CLIENT_ID
+     clientId: bombastic
    walker:
-     clientId: WALKER_CLIENT_ID
+     clientId: bombastic
      clientSecret:
        valueFrom:
          secretKeyRef:

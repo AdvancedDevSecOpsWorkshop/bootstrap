@@ -121,15 +121,6 @@ applications:
     source:
       path: infra/rhtas-operator/instance/base
 
-  rhtpa:
-    enabled: false
-    annotations:
-      argocd.argoproj.io/sync-wave: '31'
-    destination:
-      namespace: trusted-profile-analyzer
-    source:
-      path: infra/rhtpa/base
-
   devspaces:
     annotations:
       argocd.argoproj.io/sync-wave: '11'
