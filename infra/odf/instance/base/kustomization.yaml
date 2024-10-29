@@ -1,4 +1,5 @@
 resources:
+- github.com/redhat-cop/gitops-catalog/openshift-data-foundation-operator/config-helpers/node-labeler/base
 - storage-cluster.yaml
 - storage-system.yaml
 - noobaa-default-backing-store.yaml
