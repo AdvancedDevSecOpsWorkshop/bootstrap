@@ -90,6 +90,7 @@ applications:
       path: infra/amq-streams/base
 
   crunchy:
+    enabled: false
     annotations:
       argocd.argoproj.io/sync-wave: '21'
     destination:
@@ -98,7 +99,7 @@ applications:
       path: infra/crunchy/base
 
   minio:
-    enabled: true
+    enabled: false
     annotations:
       argocd.argoproj.io/sync-wave: '21'
     destination:

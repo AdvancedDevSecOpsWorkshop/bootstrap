@@ -9,5 +9,5 @@ helmCharts:
   namespace: openshift-gitops
 
 resources:
-- rhtpa-infra-app.yaml
+# - rhtpa-infra-app.yaml
 # - rhtpa.yaml
