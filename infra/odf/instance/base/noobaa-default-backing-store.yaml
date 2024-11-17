@@ -10,6 +10,6 @@ spec:
     numVolumes: 1
     resources:
       requests:
-        storage: 500Gi
+        storage: 200Gi
     storageClass: gp3-csi
   type: pv-pool
