@@ -1,6 +1,8 @@
 apiVersion: odf.openshift.io/v1alpha1
 kind: StorageSystem
 metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "5"
   name: ocs-storagecluster-storagesystem
   namespace: openshift-storage
 spec:

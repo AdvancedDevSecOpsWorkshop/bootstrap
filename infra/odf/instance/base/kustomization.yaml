@@ -3,3 +3,4 @@ resources:
 - storage-cluster.yaml
 - storage-system.yaml
 - noobaa-default-backing-store.yaml
+- unencrypted-gp3-csi.yaml

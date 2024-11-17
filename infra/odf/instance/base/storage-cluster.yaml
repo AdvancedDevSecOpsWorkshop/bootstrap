@@ -1,9 +1,11 @@
 apiVersion: ocs.openshift.io/v1
 kind: StorageCluster
 metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "5"
   name: ocs-storagecluster
   namespace: openshift-storage
 spec:
   multiCloudGateway:
-    dbStorageClassName: gp3-csi
+    dbStorageClassName: quay-gp3-csi
     reconcileStrategy: standalone

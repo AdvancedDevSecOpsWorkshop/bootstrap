@@ -1,6 +1,8 @@
 apiVersion: noobaa.io/v1alpha1
 kind: BackingStore
 metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "5"
   labels:
     app: noobaa
   name: noobaa-default-backing-store
@@ -10,6 +12,6 @@ spec:
     numVolumes: 1
     resources:
       requests:
-        storage: 200Gi
-    storageClass: gp3-csi
+        storage: 500Gi
+    storageClass: quay-gp3-csi
   type: pv-pool
