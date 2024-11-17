@@ -11,3 +11,11 @@ resources:
 - init-user-password.yaml
 # - init-quay-job.yaml
 - configure-quay-job.yaml
+
+patches:
+  - target:
+      kind: Subscription
+    patch: |
+      - op: replace
+        path: /spec/channel
+        value: stable-3.13
