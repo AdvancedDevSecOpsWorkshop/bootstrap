@@ -16,10 +16,10 @@ data:
         disableOfflineAccessScope: true
     groups:
         - key: email
-          value: admin@workshop-noreply.com
+          value: admin@workshop.com
           role: Admin
         - key: email
-          value: clusteradmin@workshop-noreply.com
+          value: clusteradmin@workshop.com
           role: Admin
         {{- range untilStep 1 (int ($.Values.users | add 1)) 1 }}
         - key: email
