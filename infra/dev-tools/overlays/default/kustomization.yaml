@@ -34,6 +34,10 @@ patches:
     - op: replace
       path: /spec/template/spec/containers/0/image
       value: quay.io/openshiftdemos/sonarqube:lts-community
+    - op: replace
+      path: /spec/strategy
+      value:
+        type: recreate
   target:
     kind: Deployment
     name: sonarqube
@@ -48,6 +52,10 @@ patches:
     - op: replace
       path: /spec/template/spec/containers/0/image
       value: quay.io/openshiftdemos/nexus:2.14.20
+    - op: replace
+      path: /spec/strategy
+      value:
+        type: recreate
   target:
     kind: Deployment
     name: nexus
