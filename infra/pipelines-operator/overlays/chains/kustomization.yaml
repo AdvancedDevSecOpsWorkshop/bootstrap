@@ -5,9 +5,9 @@ resources:
 - ../../base
 - signing-secret.yaml
 - openshift-pipelines-namespace.yaml
-- oidc-token-refresh-sa.yaml
-- oidc-info-secret.yaml
-- oidc-token-refresher-deploy.yaml
+# - oidc-token-refresh-sa.yaml
+# - oidc-info-secret.yaml
+# - oidc-token-refresher-deploy.yaml
 
 # patches:
 #   - target:
