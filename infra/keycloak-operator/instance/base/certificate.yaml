@@ -12,5 +12,5 @@ spec:
   dnsNames:
   - keycloak.${SUB_DOMAIN}
   issuerRef:
-    name: letsencrypt
+    name: zerossl-production-ec2
     kind: ClusterIssuer
