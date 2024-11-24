@@ -25,6 +25,7 @@ applications:
       path: infra/rbac/base
 
   cert-manager:
+    enabled: false
     annotations:
       argocd.argoproj.io/sync-wave: '0'
     destination:
