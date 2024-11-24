@@ -31,6 +31,9 @@ patches:
           value: 'false'
         - name: SONAR_PLUGINS_RISK_CONSENT
           value: ACCEPTED
+    - op: replace
+      path: /spec/template/spec/containers/0/image
+      value: quay.io/openshiftdemos/sonarqube:lts-community
   target:
     kind: Deployment
     name: sonarqube
@@ -41,3 +44,10 @@ patches:
         termination: edge
   target:
     kind: Route
+- patch: |-
+    - op: replace
+      path: /spec/template/spec/containers/0/image
+      value: quay.io/openshiftdemos/nexus:2.14.20
+  target:
+    kind: Deployment
+    name: nexus
