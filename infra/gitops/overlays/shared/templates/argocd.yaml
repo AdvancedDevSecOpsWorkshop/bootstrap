@@ -10,6 +10,13 @@ spec:
         enabled: false
       route:
         enabled: false
+  controller:
+    resources:
+      requests:
+        cpu: 2000m
+        memory: 6Gi
+    processors: {}
+    sharding: {}
   oidcConfig: |
     name: Keycloak
     issuer: https://keycloak.{{ $.Values.sub_domain }}/realms/openshift
