@@ -112,6 +112,8 @@ data:
           access: READ_ACCESS
         - resource: VulnerabilityManagementRequests
           access: READ_WRITE_ACCESS
+        - resource: WorkflowAdministration
+          access: READ_ACCESS
   {{- range untilStep 1 (int ($.Values.users | add 1)) 1 }}
   user{{ . }}-role.yaml: |
     name: user{{ . }}
