@@ -46,7 +46,7 @@ spec:
 
               git clone https://github.com/AdvancedDevSecOpsWorkshop/acs-policy
 
-              cd acs-automation
+              cd acs-policy
 
               # Use available admin user with password in central-htpasswd secret, override endpoint to use service
               ansible-playbook acs.yaml -e username=admin -e password=$password -e api_endpoint=central
