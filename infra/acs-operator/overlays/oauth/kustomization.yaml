@@ -5,6 +5,7 @@ resources:
   - certificate.yaml
   - github.com/redhat-cop/gitops-catalog/advanced-cluster-security-operator/operator/overlays/latest
   - github.com/redhat-cop/gitops-catalog/advanced-cluster-security-operator/instance/overlays/internal-registry-integration
+  - acs-policy-init.yaml
 
 patches:
   - patch: |-
