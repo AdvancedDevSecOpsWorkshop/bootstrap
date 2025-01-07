@@ -125,6 +125,7 @@ applications:
       path: infra/rhtas-operator/instance/base
 
   devspaces:
+    enabled: false
     annotations:
       argocd.argoproj.io/sync-wave: '11'
     destination:
