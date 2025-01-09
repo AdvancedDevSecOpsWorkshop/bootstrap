@@ -18,9 +18,12 @@ spec:
   giteaUserPassword: "openshift"
   giteaMigrateRepositories: true
   giteaRepositoriesList:
-    - repo: https://github.com/redhat-gpte-devopsautomation/globex-ui.git
-      name: globex-ui
-      private: false
-    - repo: https://github.com/redhat-gpe/stssc-on-ocp-wks.git
-      name: stssc-on-ocp-wks
-      private: false
+    - repo: https://github.com/AdvancedDevSecOpsWorkshop/workshop.git
+      name: workshop
+      private: true
+    - repo: https://github.com/OpenShiftDemos/web-nodejs.git
+      name: web-nodejs
+      private: true
+    - repo: https://github.com/AdvancedDevSecOpsWorkshop/gitops.git
+      name: gitops
+      private: true
