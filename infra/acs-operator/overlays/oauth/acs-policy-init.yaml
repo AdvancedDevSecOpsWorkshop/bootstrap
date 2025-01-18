@@ -51,7 +51,7 @@ spec:
               ansible-galaxy collection install -r collections/requirements.yaml
 
               # Use available admin user with password in central-htpasswd secret, override endpoint to use service
-              ansible-playbook acs.yaml -e username=admin -e password=$password -e api_endpoint=central -e subdomain=${SUB_DOMAIN}
+              ansible-playbook -vvv acs.yaml -e username=admin -e password=$password -e api_endpoint=central -e subdomain=${SUB_DOMAIN}
 
           name: acs-policy-init
       dnsPolicy: ClusterFirst
