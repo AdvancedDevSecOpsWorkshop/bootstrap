@@ -57,12 +57,12 @@ data:
     ENABLE_FEDERATED_AVATAR = true
 
     [openid]
-    ENABLE_OPENID_SIGNIN = true
-    ENABLE_OPENID_SIGNUP = true
+    ENABLE_OPENID_SIGNIN = false
+    ENABLE_OPENID_SIGNUP = false
 
     [oauth2_client]
-    ACCOUNT_LINKING = true
-    ENABLE_AUTO_REGISTRATION = TRUE
+    ENABLE_AUTO_REGISTRATION = true
+    ACCOUNT_LINKING = auto
 
     [webhook]
     ALLOWED_HOST_LIST = external,private
