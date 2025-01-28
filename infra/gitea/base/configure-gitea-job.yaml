@@ -26,6 +26,9 @@ spec:
             - |
               #!/usr/bin/env bash
 
+              # Give gitea time to get up and running and minimize Job backoff from failures
+              sleep 60
+
               API_TOKEN=$(cat /var/run/secrets/kubernetes.io/serviceaccount/token)
               API_SERVER=https://kubernetes.default.svc
 
