@@ -20,10 +20,10 @@ spec:
   giteaRepositoriesList:
     - repo: https://github.com/AdvancedDevSecOpsWorkshop/workshop.git
       name: workshop
-      private: true
+      private: false
     - repo: https://github.com/OpenShiftDemos/web-nodejs.git
       name: web-nodejs
-      private: true
+      private: false
     - repo: https://github.com/AdvancedDevSecOpsWorkshop/gitops.git
       name: gitops
-      private: true
+      private: false
