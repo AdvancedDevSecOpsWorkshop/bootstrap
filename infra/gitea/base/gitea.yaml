@@ -17,6 +17,7 @@ spec:
   giteaUserNumber: ${USERS}
   giteaUserPassword: "openshift"
   giteaMigrateRepositories: true
+  giteaGenerateUserFormat: "user%d"
   giteaRepositoriesList:
     - repo: https://github.com/AdvancedDevSecOpsWorkshop/workshop.git
       name: workshop
