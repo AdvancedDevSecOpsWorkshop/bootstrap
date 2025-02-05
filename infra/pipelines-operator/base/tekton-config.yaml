@@ -22,7 +22,7 @@ spec:
     artifacts.taskrun.format: in-toto
     artifacts.taskrun.storage: oci
     transparency.enabled: "true"
-    transparency.url: 'https://rekor-server-trusted-artifact-signer.${SUB_DOMAIN}'
+    # transparency.url: 'https://rekor-server-trusted-artifact-signer.${SUB_DOMAIN}'
   dashboard:
     readonly: false
   params:
