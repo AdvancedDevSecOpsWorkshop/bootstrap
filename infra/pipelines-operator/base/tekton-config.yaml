@@ -24,6 +24,7 @@ spec:
     artifacts.oci.signer: x509
     transparency.enabled: "true"
     transparency.url: 'https://rekor-server-trusted-artifact-signer.${SUB_DOMAIN}'
+    signers.x509.tuf.mirror.url: 'https://tuf-trusted-artifact-signer.${SUB_DOMAIN}'
   dashboard:
     readonly: false
   params:
