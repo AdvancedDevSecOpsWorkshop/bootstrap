@@ -45,37 +45,37 @@ spec:
 
               ansible-playbook main.yaml -e password=$password -e sub_domain=$sub_domain -e users=$(echo $users | xargs)
           name: configure-gitea
-        - image: image-registry.openshift-image-registry.svc:5000/openshift/cli:latest
-          env:
-          - name: sub_domain
-            value: ${SUB_DOMAIN}
-          - name: branch
-            value: main
-          - name: password
-            value: openshift
-          command:
-            - /bin/bash
-            - -c
-            - |
-              #!/usr/bin/env bash
+        # - image: image-registry.openshift-image-registry.svc:5000/openshift/cli:latest
+        #   env:
+        #   - name: sub_domain
+        #     value: ${SUB_DOMAIN}
+        #   - name: branch
+        #     value: main
+        #   - name: password
+        #     value: openshift
+        #   command:
+        #     - /bin/bash
+        #     - -c
+        #     - |
+        #       #!/usr/bin/env bash
 
-              until curl --output /dev/null --silent --head --fail http://gitea.gitea.svc:3000; do
-                  printf 'Waiting for gitea to be available'
-                  sleep 10
-              done
+        #       until curl --output /dev/null --silent --head --fail http://gitea.gitea.svc:3000; do
+        #           printf 'Waiting for gitea to be available'
+        #           sleep 10
+        #       done
 
-              API_TOKEN=$(cat /var/run/secrets/kubernetes.io/serviceaccount/token)
-              API_SERVER=https://kubernetes.default.svc
+        #       API_TOKEN=$(cat /var/run/secrets/kubernetes.io/serviceaccount/token)
+        #       API_SERVER=https://kubernetes.default.svc
 
-              oc login --insecure-skip-tls-verify --token=$API_TOKEN $API_SERVER
+        #       oc login --insecure-skip-tls-verify --token=$API_TOKEN $API_SERVER
 
-              oc rsh deploy/gitea \
-                 ./gitea admin auth add-oauth --name Keycloak --icon-url https://upload.wikimedia.org/wikipedia/commons/2/29/Keycloak_Logo.png \
-                    --provider openidConnect --auto-discover-url https://keycloak.${sub_domain}/realms/openshift/.well-known/openid-configuration \
-                    --key gitea --secret c7eae76c-bd26-4588-90b5-fa7a7520fb6b --group-claim-name groups --admin-group value cluster-admins \
-                    --config /home/gitea/conf/app.ini
+        #       oc rsh deploy/gitea \
+        #       ./gitea admin auth add-oauth --name Keycloak --icon-url https://upload.wikimedia.org/wikipedia/commons/2/29/Keycloak_Logo.png \
+        #         --provider openidConnect --auto-discover-url https://keycloak.${sub_domain}/realms/openshift/.well-known/openid-configuration \
+        #         --key gitea --secret c7eae76c-bd26-4588-90b5-fa7a7520fb6b --group-claim-name groups --admin-group value cluster-admins \
+        #         --config /home/gitea/conf/app.ini
 
-          name: configure-gitea-auth
+        #   name: configure-gitea-auth
       dnsPolicy: ClusterFirst
       restartPolicy: Never
       terminationGracePeriodSeconds: 30
