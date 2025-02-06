@@ -45,7 +45,7 @@ spec:
 
               ansible-playbook main.yaml -e password=$password -e sub_domain=$sub_domain -e users=$(echo $users | xargs)
           name: configure-gitea
-        - image: openshift/cli:latest
+        - image: image-registry.openshift-image-registry.svc:5000/openshift/cli:latest
           env:
           - name: sub_domain
             value: ${SUB_DOMAIN}
