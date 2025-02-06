@@ -72,7 +72,8 @@ spec:
               oc rsh deploy/gitea \
                  ./gitea admin auth add-oauth --name Keycloak --icon-url https://upload.wikimedia.org/wikipedia/commons/2/29/Keycloak_Logo.png \
                     --provider openidConnect --auto-discover-url https://keycloak.${sub_domain}/realms/openshift/.well-known/openid-configuration \
-                    --key gitea --secret c7eae76c-bd26-4588-90b5-fa7a7520fb6b --group-claim-name groups --admin-group value cluster-admins
+                    --key gitea --secret c7eae76c-bd26-4588-90b5-fa7a7520fb6b --group-claim-name groups --admin-group value cluster-admins \
+                    --config /home/gitea/conf/app.ini
 
           name: configure-gitea-auth
       dnsPolicy: ClusterFirst
