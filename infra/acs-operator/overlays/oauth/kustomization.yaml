@@ -29,3 +29,20 @@ patches:
             - name: declarative-configurations
     target:
       kind: Central
+  - patch: |-
+      - op: add
+        path: /spec/scannerV4
+        value:
+          db:
+            persistence:
+              persistentVolumeClaim:
+                claimName: scanner-v4-db
+          indexer:
+            scaling:
+              autoScaling: Enabled
+              maxReplicas: 5
+              minReplicas: 2
+              replicas: 3
+          scannerComponent: Default
+    target:
+      kind: SecuredCluster
