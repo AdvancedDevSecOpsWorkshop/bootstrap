@@ -22,7 +22,7 @@ spec:
     - repo: https://github.com/AdvancedDevSecOpsWorkshop/workshop.git
       name: workshop
       private: false
-    - repo: https://github.com/coolstore-demo/web-nodejs,git
+    - repo: https://github.com/coolstore-demo/web-nodejs.git
       name: web-nodejs
       private: false
     - repo: https://github.com/AdvancedDevSecOpsWorkshop/gitops.git
