@@ -48,7 +48,8 @@ top right and select "Site Administration". Configure a new OAuth2 provider with
 * Authentication Provider: `OpenID Connect`
 * Client ID: `gitea`
 * Client Secret: `c7eae76c-bd26-4588-90b5-fa7a7520fb6b`
-* OpenID Connect Discovery URL: Get this from the Keycloak UI, OpenShift Realm, Realm Settings, General Tab copy the link called `OpenID Endpoint Configuration`
+* Icon URL: 'https://upload.wikimedia.org/wikipedia/commons/2/29/Keycloak_Logo.png'
+* OpenID Connect Discovery URL: Get this from the Keycloak UI, OpenShift Realm, Realm Settings, General Tab copy the link called `OpenID Endpoint Configuration`. Alternatively the URL is `https://keycloak.<subdomain>/realms/openshift/.well-known/openid-configuration` and replace `<subdomain>` with the `apps.xxxx` subdomain for your cluster.
 * Claim name providing group names for this source. (Optional): `groups`
 * Group Claim value for administrator users. (Optional - requires claim name above): `cluster-admins`
 
