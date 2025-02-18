@@ -5,6 +5,10 @@ metadata:
   namespace: gitops
 spec:
   applicationSet:
+    sourceNamespaces:
+      {{- range untilStep 1 (int ($.Values.users | add 1)) 1 }}
+      - user{{ . }}-argocd
+      {{- end }}
     webhookServer:
       ingress:
         enabled: false
