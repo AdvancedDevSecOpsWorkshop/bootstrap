@@ -70,9 +70,9 @@ spec:
               oc login --insecure-skip-tls-verify --token=$API_TOKEN $API_SERVER
 
               # Check if authenticator has already been added
-              KEYCLOAK_ROW=${oc rsh deploy/postgresql-gitea psql -d giteadb -c "SELECT * FROM login_source WHERE id=1"}
+              KEYCLOAK_ROW=$(oc rsh deploy/postgresql-gitea psql -d giteadb -c "SELECT * FROM login_source WHERE id=1")
 
-              if [[ $string != *"Keycloak"* ]]; then
+              if [[ $KEYCLOAK_ROW != *"Keycloak"* ]]; then
                 # Insert row into Gitea database for Keycloak authentication"
                 echo "Inserting Keycloak Authenticator into Gitea Database"
                 oc rsh deploy/postgresql-gitea \
