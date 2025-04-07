@@ -69,6 +69,9 @@ spec:
 
               oc login --insecure-skip-tls-verify --token=$API_TOKEN $API_SERVER
 
+              # Double check deployment is ready
+              oc rollout status deploy/postgresql-gitea
+
               # Check if authenticator has already been added
               KEYCLOAK_ROW=$(oc rsh deploy/postgresql-gitea psql -d giteadb -c "SELECT * FROM login_source WHERE id=1")
 
