@@ -69,9 +69,17 @@ spec:
 
               oc login --insecure-skip-tls-verify --token=$API_TOKEN $API_SERVER
 
-              # Insert row into Gitea database for Keycloak authentication"
-              oc rsh deploy/postgresql-gitea \
-                psql -d giteadb -c "INSERT INTO login_source (id,type,name,is_active,is_sync_enabled,cfg) VALUES (1,6,'Keycloak','t','t', '{\"Provider\":\"openidConnect\",\"ClientID\":\"gitea\",\"ClientSecret\":\"c7eae76c-bd26-4588-90b5-fa7a7520fb6b\",\"OpenIDConnectAutoDiscoveryURL\":\"https://keycloak.${sub_domain}/realms/openshift/.well-known/openid-configuration\",\"CustomURLMapping\":null,\"IconURL\":\"https://upload.wikimedia.org/wikipedia/commons/2/29/Keycloak_Logo.png\",\"Scopes\":null,\"RequiredClaimName\":\"\",\"RequiredClaimValue\":\"\",\"GroupClaimName\":\"groups\",\"AdminGroup\":\"cluster-admins\",\"GroupTeamMap\":\"\",\"GroupTeamMapRemoval\":false,\"RestrictedGroup\":\"\"}'); COMMIT;"
+              # Check if authenticator has already been added
+              KEYCLOAK_ROW=${oc rsh deploy/postgresql-gitea psql -d giteadb -c "SELECT * FROM login_source WHERE id=1"}
+
+              if [[ $string != *"Keycloak"* ]]; then
+                # Insert row into Gitea database for Keycloak authentication"
+                echo "Inserting Keycloak Authenticator into Gitea Database"
+                oc rsh deploy/postgresql-gitea \
+                  psql -d giteadb -c "INSERT INTO login_source (id,type,name,is_active,is_sync_enabled,cfg) VALUES (1,6,'Keycloak','t','t', '{\"Provider\":\"openidConnect\",\"ClientID\":\"gitea\",\"ClientSecret\":\"c7eae76c-bd26-4588-90b5-fa7a7520fb6b\",\"OpenIDConnectAutoDiscoveryURL\":\"https://keycloak.${sub_domain}/realms/openshift/.well-known/openid-configuration\",\"CustomURLMapping\":null,\"IconURL\":\"https://upload.wikimedia.org/wikipedia/commons/2/29/Keycloak_Logo.png\",\"Scopes\":null,\"RequiredClaimName\":\"\",\"RequiredClaimValue\":\"\",\"GroupClaimName\":\"groups\",\"AdminGroup\":\"cluster-admins\",\"GroupTeamMap\":\"\",\"GroupTeamMapRemoval\":false,\"RestrictedGroup\":\"\"}'); COMMIT;"
+              else
+                echo "Keycloak Authenticator already exists"
+              fi
 
           name: configure-gitea-auth
       dnsPolicy: ClusterFirst
